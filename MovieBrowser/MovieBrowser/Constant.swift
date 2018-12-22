@@ -8,6 +8,10 @@
 
 import Foundation
 
+//MARK: Keys
+
+let apiKey = "7c18796081fc8f45f308151b448511e2"
+
 //MARK: Storyboard's IDs
 let kMAIN = "Main"
 

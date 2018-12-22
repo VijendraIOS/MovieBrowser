@@ -17,6 +17,11 @@
 		CC331AB221CE6FC4003A5EFA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB121CE6FC4003A5EFA /* Extension.swift */; };
 		CC331AB421CE6FDE003A5EFA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB321CE6FDE003A5EFA /* Constant.swift */; };
 		CC331AB721CE7563003A5EFA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB621CE7563003A5EFA /* SwiftyJSON.swift */; };
+		CC331AB921CE7C03003A5EFA /* RESTAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB821CE7C03003A5EFA /* RESTAPIManager.swift */; };
+		CC331ABC21CE7CF8003A5EFA /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331ABB21CE7CF8003A5EFA /* ReachabilityManager.swift */; };
+		CC331ABE21CE8160003A5EFA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331ABD21CE8160003A5EFA /* MovieCell.swift */; };
+		CC331AC121CE8482003A5EFA /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AC021CE8482003A5EFA /* Movies.swift */; };
+		CC331AC521CE8CBD003A5EFA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,13 @@
 		CC331AB121CE6FC4003A5EFA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CC331AB321CE6FDE003A5EFA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CC331AB621CE7563003A5EFA /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		CC331AB821CE7C03003A5EFA /* RESTAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIManager.swift; sourceTree = "<group>"; };
+		CC331ABB21CE7CF8003A5EFA /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		CC331ABD21CE8160003A5EFA /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		CC331AC021CE8482003A5EFA /* Movies.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
+		CC331AC221CE8CBB003A5EFA /* MovieBrowser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovieBrowser-Bridging-Header.h"; sourceTree = "<group>"; };
+		CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		CC331AC421CE8CBD003A5EFA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +82,13 @@
 				CC331AAD21CE67B5003A5EFA /* Resources */,
 				CC331AB021CE6FA7003A5EFA /* Extension */,
 				CC331AB521CE754A003A5EFA /* Networking */,
+				CC331ABF21CE8181003A5EFA /* cell */,
+				CC331AC421CE8CBD003A5EFA /* MBProgressHUD.h */,
+				CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */,
 				CC331AA021CE66D0003A5EFA /* Info.plist */,
 				CC331AB321CE6FDE003A5EFA /* Constant.swift */,
+				CC331AC021CE8482003A5EFA /* Movies.swift */,
+				CC331AC221CE8CBB003A5EFA /* MovieBrowser-Bridging-Header.h */,
 			);
 			path = MovieBrowser;
 			sourceTree = "<group>";
@@ -123,8 +140,18 @@
 			isa = PBXGroup;
 			children = (
 				CC331AB621CE7563003A5EFA /* SwiftyJSON.swift */,
+				CC331AB821CE7C03003A5EFA /* RESTAPIManager.swift */,
+				CC331ABB21CE7CF8003A5EFA /* ReachabilityManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		CC331ABF21CE8181003A5EFA /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CC331ABD21CE8160003A5EFA /* MovieCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +186,7 @@
 				TargetAttributes = {
 					CC331A9021CE66CD003A5EFA = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -199,8 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC331AC121CE8482003A5EFA /* Movies.swift in Sources */,
+				CC331ABC21CE7CF8003A5EFA /* ReachabilityManager.swift in Sources */,
 				CC331AA921CE672B003A5EFA /* MovieDetailViewController.swift in Sources */,
+				CC331ABE21CE8160003A5EFA /* MovieCell.swift in Sources */,
+				CC331AC521CE8CBD003A5EFA /* MBProgressHUD.m in Sources */,
 				CC331AA721CE6716003A5EFA /* MovieListViewController.swift in Sources */,
+				CC331AB921CE7C03003A5EFA /* RESTAPIManager.swift in Sources */,
 				CC331AB421CE6FDE003A5EFA /* Constant.swift in Sources */,
 				CC331AB721CE7563003A5EFA /* SwiftyJSON.swift in Sources */,
 				CC331A9521CE66CD003A5EFA /* AppDelegate.swift in Sources */,
@@ -348,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -357,6 +391,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SumVijIos.com.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieBrowser/MovieBrowser-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -366,6 +402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -375,6 +412,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SumVijIos.com.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieBrowser/MovieBrowser-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
