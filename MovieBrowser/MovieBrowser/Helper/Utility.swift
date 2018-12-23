@@ -9,10 +9,10 @@
 import Foundation
 enum MOVIE_TYPE: String {
 	
-	case normal 			= "Normal"
-	case search 			= "Search"
-	case mostPopular 	= "MostPopular"
-	case topRated 		= "TopRated"
+	case normal = "Normal"
+	case search = "Search"
+	case mostPopular = "MostPopular"
+	case topRated = "TopRated"
 }
 
 class Utility {

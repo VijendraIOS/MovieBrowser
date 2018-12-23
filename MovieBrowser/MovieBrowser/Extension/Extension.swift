@@ -20,10 +20,10 @@ extension UIStoryboard {
 	}
 }
 
-	/*!
-		@brief It is UIImageView Of Data.
-		@discussion This extension is used for load image asynchronously.
-	*/
+/*!
+@brief It is UIImageView Of Data.
+@discussion This extension is used for load image asynchronously.
+*/
 let imageCache = NSCache<NSString, AnyObject>()
 
 extension UIImageView {

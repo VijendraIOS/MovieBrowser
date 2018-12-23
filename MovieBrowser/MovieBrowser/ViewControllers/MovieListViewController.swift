@@ -68,7 +68,7 @@ class MovieListViewController: UIViewController {
 	fileprivate func setupCollectionView() {
 		
 		collectionViewMovie.dataSource  = self
-		collectionViewMovie.delegate      = self
+		collectionViewMovie.delegate = self
 	}
 	
 	/*!
@@ -78,12 +78,12 @@ class MovieListViewController: UIViewController {
 	*/
 	fileprivate func configureSearchBar() {
 		
-		searchBar.delegate 				 = self		
-		searchBar.showsCancelButton  = true
-		searchBar.searchBarStyle        = .default
-		searchBar.barTintColor            = UIColor.red
-		searchBar.tintColor                 = .black
-		searchBar.backgroundColor     = UIColor(displayP3Red: 0/255, green: 199/255, blue: 242/255, alpha: 1.0)
+		searchBar.delegate = self
+		searchBar.showsCancelButton = true
+		searchBar.searchBarStyle = .default
+		searchBar.barTintColor = UIColor.red
+		searchBar.tintColor = .black
+		searchBar.backgroundColor = UIColor(displayP3Red: 0/255, green: 199/255, blue: 242/255, alpha: 1.0)
 		let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 		UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
 	}
