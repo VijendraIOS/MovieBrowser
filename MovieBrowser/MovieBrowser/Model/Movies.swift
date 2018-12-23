@@ -17,12 +17,12 @@ class Movies {
     
     init(json:JSON) {
         
-        originalTitle        = json["original_title"].string ?? ""
-        let posterPath     = json["poster_path"].string ?? ""
-        posterImage       = posterImage+posterPath
-        overview            = json["overview"].string ?? ""
-        rating                = json["vote_average"].double ?? 0.0
-        releaseDate       = json["release_date"].string ?? ""
+        originalTitle = json["original_title"].string ?? ""
+        let posterPath = json["poster_path"].string ?? ""
+        posterImage = posterImage+posterPath
+        overview = json["overview"].string ?? ""
+        rating = json["vote_average"].double ?? 0.0
+        releaseDate = json["release_date"].string ?? ""
     }
 }
 
