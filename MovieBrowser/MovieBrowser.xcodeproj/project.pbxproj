@@ -13,7 +13,6 @@
 		CC331A9F21CE66D0003A5EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC331A9D21CE66D0003A5EFA /* LaunchScreen.storyboard */; };
 		CC331AA721CE6716003A5EFA /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AA621CE6716003A5EFA /* MovieListViewController.swift */; };
 		CC331AA921CE672B003A5EFA /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AA821CE672B003A5EFA /* MovieDetailViewController.swift */; };
-		CC331AAF21CE69D9003A5EFA /* aaa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC331AAE21CE69D9003A5EFA /* aaa.jpg */; };
 		CC331AB221CE6FC4003A5EFA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB121CE6FC4003A5EFA /* Extension.swift */; };
 		CC331AB421CE6FDE003A5EFA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB321CE6FDE003A5EFA /* Constant.swift */; };
 		CC331AB721CE7563003A5EFA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AB621CE7563003A5EFA /* SwiftyJSON.swift */; };
@@ -35,7 +34,6 @@
 		CC331AA021CE66D0003A5EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC331AA621CE6716003A5EFA /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		CC331AA821CE672B003A5EFA /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
-		CC331AAE21CE69D9003A5EFA /* aaa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aaa.jpg; sourceTree = "<group>"; };
 		CC331AB121CE6FC4003A5EFA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CC331AB321CE6FDE003A5EFA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CC331AB621CE7563003A5EFA /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		CC331AAD21CE67B5003A5EFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CC331AAE21CE69D9003A5EFA /* aaa.jpg */,
 				CC331A9B21CE66D0003A5EFA /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -254,7 +251,6 @@
 				CC331A9F21CE66D0003A5EFA /* LaunchScreen.storyboard in Resources */,
 				CC331A9C21CE66D0003A5EFA /* Assets.xcassets in Resources */,
 				CC331A9A21CE66CD003A5EFA /* Main.storyboard in Resources */,
-				CC331AAF21CE69D9003A5EFA /* aaa.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

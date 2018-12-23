@@ -11,14 +11,14 @@ import UIKit
 class MovieListViewController: UIViewController {
 	
 	//MARK: IBOutlet and Variables
-	
 	@IBOutlet weak var collectionViewMovie:UICollectionView!
-	
 	@IBOutlet weak var searchBar: UISearchBar!
 	var arrayMovies:[Movies] = [Movies]()
 	var searchController:UISearchController!
-	var pageCount:Int = 0
+	var pageCount:Int = 1
 	var selectedMovieTypeIndex:Int = -1
+	var currentShowingMovieType:MOVIE_TYPE = MOVIE_TYPE.normal
+	var searchText:String = ""
 	
 	//MARK: UIViewController's life cycle methods
 	override func viewDidLoad() {
@@ -27,23 +27,26 @@ class MovieListViewController: UIViewController {
 		self.title = "Movies"
 		
 		setupCollectionView()
-		configureSearchBar()()
-		MBProgressHUD.showAdded(to: self.view, animated: true)
-		if(isInternetAvailable()) {
-			
-			callAPIToGetMovieList()
-		}else {
-			
-			Utility.showAlert(in: self, message: kNO_INTERNET_CONNECTION, title: "Alert")
-			DispatchQueue.main.async {
-				
-				MBProgressHUD.hide(for: self.view, animated: true)
-			}
-		}
+		configureSearchBar()
+		callAPIToGetMovieList(type: MOVIE_TYPE.normal.rawValue, searchText: "")
 	}
 	
 	//MARK: IBActions
 	@IBAction func buttonActionLoadMore(sender:UIButton) {
+		
+		switch currentShowingMovieType {
+		case MOVIE_TYPE.normal:
+			
+			callAPIToGetMovieList(type:MOVIE_TYPE.normal.rawValue, searchText: "")
+		case MOVIE_TYPE.search:
+			
+			callAPIToGetMovieList(type: MOVIE_TYPE.search.rawValue, searchText: self.searchText)
+		case MOVIE_TYPE.mostPopular:
+			
+			callAPIToGetMovieList(type: MOVIE_TYPE.mostPopular.rawValue, searchText: "")
+		case MOVIE_TYPE.topRated:
+			
+			callAPIToGetMovieList(type: MOVIE_TYPE.topRated.rawValue, searchText: "")
 	}
 	
 	@IBAction func buttonActionSetting(_ sender: UIBarButtonItem) {
@@ -70,25 +73,56 @@ class MovieListViewController: UIViewController {
 		UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
 	}
 	
-	fileprivate func callAPIToGetMovieList(type:String) {
+	fileprivate func callAPIToGetMovieList(type:String,searchText:String) {
 		
-		let url = "https://api.themoviedb.org/3/list/1?api_key=7c18796081fc8f45f308151b448511e2&language=en-US";
-		switch type {
-		case MOVIE_TYPE.Normal:
-			<#code#>
-		default:
-			<#code#>
+		if(!isInternetAvailable()) {
+			
+			Utility.showAlert(in: self, message: kNO_INTERNET_CONNECTION, title: "Alert")
+			return;
 		}
+		MBProgressHUD.showAdded(to: self.view, animated: true)
+		var url = ""
+		switch type {
+			
+		case MOVIE_TYPE.normal.rawValue:
+	
+			self.title = "Movies"
+			url = Utility.getGeneralMovieListURL(with: pageCount)
+		case MOVIE_TYPE.search.rawValue:
+			
+			self.title = "Movies"
+			self.searchText = ""
+			url = Utility.getSearchMovieListURL(for: pageCount, keywordToSearch: searchText)
+		case MOVIE_TYPE.mostPopular.rawValue:
+			
+			self.title = "Most Popular Movies"
+			url = Utility.getMostPopularMovieListURL(for: pageCount)
+		case MOVIE_TYPE.topRated.rawValue:
+			
+			self.title = "Top Rated Movies"
+			url = Utility.getTopRatedMovieURL(for:pageCount)
+		default:
+			self.title = "Movies"
+			url = Utility.getGeneralMovieListURL(with: pageCount)
+		}
+		
 		RESTAPIManager.makeHTTPGETRequest(url) { (json, error) in
-			guard let items = json["items"].array else {
+			guard let items = (type == MOVIE_TYPE.normal.rawValue) ? json["items"].array : json["results"].array else {
 				return
+			}
+			print("items are here\(items)")
+			if(self.pageCount == 1) {
+				
+				self.arrayMovies.removeAll()
 			}
 			for item in items {
 				
 				self.arrayMovies.append(Movies(json: item))
 			}
 			DispatchQueue.main.async {
+				
 				MBProgressHUD.hide(for: self.view, animated: true)
+				self.pageCount = self.pageCount+1
 				self.collectionViewMovie.reloadData()
 			}
 		}
@@ -118,7 +152,14 @@ extension MovieListViewController: UISearchBarDelegate {
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		print("search button action")
+		
+		if(searchBar.text != "") {
+			
+			pageCount = 1
+			searchText = searchBar.text!
+			searchBar.resignFirstResponder()
+			callAPIToGetMovieList(type: MOVIE_TYPE.search.rawValue, searchText: searchBar.text!)
+		}
 	}
 }
 
@@ -206,9 +247,20 @@ extension MovieListViewController: UIPopoverPresentationControllerDelegate {
 
 extension MovieListViewController: SettingViewControllerDelegate {
 	
+	//MARK: SettingViewControllerDelegate
 	func didSelected(index: Int) {
 		
 		selectedMovieTypeIndex = index
+		pageCount = 1
+		if(index == 0) {
+			
+			currentShowingMovieType = MOVIE_TYPE.mostPopular
+			callAPIToGetMovieList(type: MOVIE_TYPE.mostPopular.rawValue, searchText: "")
+		}else {
+			
+			currentShowingMovieType = MOVIE_TYPE.topRated
+			callAPIToGetMovieList(type:MOVIE_TYPE.topRated.rawValue, searchText: "")
+		}
 	}
 }
 
