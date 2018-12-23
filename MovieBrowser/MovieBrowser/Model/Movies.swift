@@ -29,7 +29,6 @@ import Foundation
 "title" : "Thor: Ragnarok",
 "media_type" : "movie"
 },*/
-
 class Movies {
     
     var originalTitle:String!
