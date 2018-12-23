@@ -7,7 +7,7 @@
 //
 
 import Foundation
-enum MOVIE_TYPE {
+enum MOVIE_TYPE: String {
 	
 	case normal = "Normal"
 	case search = "Search"
@@ -30,13 +30,14 @@ class Utility {
 	}
 	
 	class func getGeneralMovieListURL(with id:Int) -> String {
-		let urlString  =
-		return "https://api.themoviedb.org/3/list/\(id)?api_key=7c18796081fc8f45f308151b448511e2&language=en-US"
+		
+		let urlString  = "https://api.themoviedb.org/3/list/\(id)?api_key=7c18796081fc8f45f308151b448511e2&language=en-US"
+		return urlString
 	}
 	
 	class func getSearchMovieListURL(for pageCount:Int, keywordToSearch:String)  -> String{
 		
-		let urlString = "https://api.themoviedb.org/3/search/movie?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&query=\(keyWordToSearch)&page=\(pageCount)&include_adult=false"
+		let urlString = "https://api.themoviedb.org/3/search/movie?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&query=\(keywordToSearch)&page=\(pageCount)&include_adult=false"
 		return urlString
 	}
 	
@@ -50,7 +51,6 @@ class Utility {
 	class func getTopRatedMovieURL(for pageCount:Int) -> String {
 		
 		let urlString = "https://api.themoviedb.org/3/movie/top_rated?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&page=\(pageCount)"
-		
 		return urlString
 	}
 }

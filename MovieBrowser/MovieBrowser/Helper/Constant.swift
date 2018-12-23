@@ -17,12 +17,6 @@ let kSEARCH = "Search"
 let kMOST_POPULAR = "MostPopular"
 let kTOP_RATED = "TopRated"
 
-
-//MARK: URL's
-let generalList = "https://api.themoviedb.org/3/list/1?api_key=7c18796081fc8f45f308151b448511e2&language=en-US";
-
-let a = String(format: "https://api.themoviedb.org/3/list/1?api_key=7c18796081fc8f45f308151b448511e2&language=en-US", arguments: <#T##[CVarArg]#>)
-
 //MARK: KEYS
 let apiKey = "7c18796081fc8f45f308151b448511e2"
 
