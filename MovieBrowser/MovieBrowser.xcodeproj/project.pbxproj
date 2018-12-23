@@ -88,7 +88,6 @@
 				CC4BE0F121CF63D400F4F946 /* ActivityIndicator */,
 				CC331AC221CE8CBB003A5EFA /* MovieBrowser-Bridging-Header.h */,
 				CC331AA021CE66D0003A5EFA /* Info.plist */,
-				CC4BE0F321CF63FA00F4F946 /* Extra */,
 				CC4BE0F421CF641700F4F946 /* Helper */,
 				CC4BE0F221CF63EB00F4F946 /* Model */,
 			);
@@ -171,13 +170,6 @@
 				CC331AC021CE8482003A5EFA /* Movies.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CC4BE0F321CF63FA00F4F946 /* Extra */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extra;
 			sourceTree = "<group>";
 		};
 		CC4BE0F421CF641700F4F946 /* Helper */ = {

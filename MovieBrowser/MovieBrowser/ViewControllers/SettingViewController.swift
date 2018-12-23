@@ -2,32 +2,39 @@
 //  SettingViewController.swift
 //  MovieBrowser
 //
-//  Created by Sumit Vishwakarma on 23/12/18.
-//  Copyright © 2018 Sumit Vishwakarma. All rights reserved.
+//  Created by Vijendra Vishwakarma on 23/12/18.
+//  Copyright © 2018 Vijendra Vishwakarma. All rights reserved.
 //
 
 import UIKit
-
 protocol SettingViewControllerDelegate {
 	func didSelected(index:Int)
 }
-
+/*!
+	@brief: The SettingViewController
+	@discussion:  This class is designed and implemented to change settings of the movie type.
+	@superclass SuperClass: UIViewController
+	@classdesign: It is design for all the iPhone size.
+*/
 class SettingViewController: UIViewController {
-
+	
+	//MARK: IBOutlets and Variables
 	@IBOutlet weak var settingTableView:UITableView!
 	var delegate:SettingViewControllerDelegate? = nil
 	var selectedIndex:Int = -1
 	var arraySettingMenu:[String] = ["Most popular", "Highest rated"]
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	//MARK: UIViewController's life cycle methods
+	override func viewDidLoad() {
+		
+		super.viewDidLoad()
 		setupTableView()
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 	
 	//MARK: IBActions
 	@IBAction func buttonActionDone(sender:UIBarButtonItem) {
@@ -46,6 +53,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 	
+	//MARK: UITableViewDataSource
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -62,6 +70,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 		return cell!
 	}
 	
+	//MARK: UITableViewDelegates
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		selectedIndex = indexPath.row

@@ -53,10 +53,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderMovie" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-uJ-1NO">
-                                                    <rect key="frame" x="0.0" y="23.5" width="143" height="110.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="143" height="179"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avenger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-ov-SS2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="143" height="25"/>
+                                                    <rect key="frame" x="0.0" y="109" width="143" height="25"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="jMc-h3-5vk"/>
                                                     </constraints>
@@ -67,13 +68,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="oZp-uJ-1NO" firstAttribute="top" secondItem="SSM-ov-SS2" secondAttribute="bottom" constant="-1.5" id="995-rQ-0v8"/>
                                             <constraint firstItem="SSM-ov-SS2" firstAttribute="leading" secondItem="fRn-nf-aHD" secondAttribute="leading" id="OfB-n2-jLp"/>
-                                            <constraint firstAttribute="bottom" secondItem="oZp-uJ-1NO" secondAttribute="bottom" id="P0e-D0-7gw"/>
                                             <constraint firstItem="oZp-uJ-1NO" firstAttribute="leading" secondItem="fRn-nf-aHD" secondAttribute="leading" id="a3C-C8-G1l"/>
-                                            <constraint firstItem="SSM-ov-SS2" firstAttribute="top" secondItem="fRn-nf-aHD" secondAttribute="top" id="gfy-6Z-jD5"/>
+                                            <constraint firstAttribute="bottom" secondItem="SSM-ov-SS2" secondAttribute="bottom" id="cRX-sQ-Xi4"/>
                                             <constraint firstAttribute="trailing" secondItem="oZp-uJ-1NO" secondAttribute="trailing" id="hJh-Qx-9FY"/>
                                             <constraint firstAttribute="trailing" secondItem="SSM-ov-SS2" secondAttribute="trailing" id="sRj-qy-UMq"/>
+                                            <constraint firstItem="oZp-uJ-1NO" firstAttribute="top" secondItem="fRn-nf-aHD" secondAttribute="top" id="yUL-hD-Vee"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageViewPoster" destination="oZp-uJ-1NO" id="KFB-nW-QYl"/>
@@ -217,7 +217,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a59-Ys-VpU">
-                                                <rect key="frame" x="0.0" y="185" width="375" height="210"/>
+                                                <rect key="frame" x="0.0" y="185" width="375" height="147"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGD-VL-gdJ">
                                                         <rect key="frame" x="8" y="8" width="120" height="22"/>
@@ -228,7 +228,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8K-j8-aP4">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8K-j8-aP4">
                                                         <rect key="frame" x="136" y="8" width="231" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.77907680459999995" colorSpace="calibratedRGB"/>
@@ -252,21 +252,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-i3-GWl">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-i3-GWl">
                                                         <rect key="frame" x="136" y="45" width="231" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.77907680459999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-Iw-f8N">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-Iw-f8N">
                                                         <rect key="frame" x="136" y="82" width="231" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.77907680459999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNM-89-F6W">
-                                                        <rect key="frame" x="8" y="118" width="359" height="84"/>
-                                                        <string key="text">kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf kjflajfkasfklj lksdjf </string>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNM-89-F6W">
+                                                        <rect key="frame" x="8" y="118" width="359" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.77907680459999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>

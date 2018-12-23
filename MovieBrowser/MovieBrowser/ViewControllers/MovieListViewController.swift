@@ -7,14 +7,18 @@
 //
 
 import UIKit
-
+/*!
+	@brief :The MoviesListViewController class
+	@discussion:  This class is designed and implemented to show list of movies according to sorted order most popular movies, top rated movies or via search.
+	@superclass SuperClass: UIViewController
+	@classdesign: It is design for all the iPhone size.
+*/
 class MovieListViewController: UIViewController {
 	
 	//MARK: IBOutlet and Variables
 	@IBOutlet weak var collectionViewMovie:UICollectionView!
 	@IBOutlet weak var searchBar: UISearchBar!
 	var arrayMovies:[Movies] = [Movies]()
-	var searchController:UISearchController!
 	var pageCount:Int = 1
 	var selectedMovieTypeIndex:Int = -1
 	var currentShowingMovieType:MOVIE_TYPE = MOVIE_TYPE.normal
@@ -47,6 +51,7 @@ class MovieListViewController: UIViewController {
 		case MOVIE_TYPE.topRated:
 			
 			callAPIToGetMovieList(type: MOVIE_TYPE.topRated.rawValue, searchText: "")
+		}
 	}
 	
 	@IBAction func buttonActionSetting(_ sender: UIBarButtonItem) {
@@ -55,12 +60,22 @@ class MovieListViewController: UIViewController {
 	}
 	
 	//MARK: Methods
+	/*!
+		@brief It is a setupCollectionView method
+		@description This method is used to setup collectionView delegate and datasource.
+		@param nil
+	*/
 	fileprivate func setupCollectionView() {
 		
 		collectionViewMovie.dataSource  = self
 		collectionViewMovie.delegate      = self
 	}
 	
+	/*!
+		@brief It is a configureSearchBar method
+		@description This method is used to configure search bar like background controller , delegates.
+		@param nil
+	*/
 	fileprivate func configureSearchBar() {
 		
 		searchBar.delegate 				 = self		
@@ -73,11 +88,17 @@ class MovieListViewController: UIViewController {
 		UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
 	}
 	
+	/*!
+		@brief It is a callAPIToGetMovieList method
+		@description This method is to get movies list like most popular, top rated etc.
+		@param type : Type may be most popular, top rated movies
+		@parm searchText : only apply when searching movies
+	*/
 	fileprivate func callAPIToGetMovieList(type:String,searchText:String) {
 		
 		if(!isInternetAvailable()) {
 			
-			Utility.showAlert(in: self, message: kNO_INTERNET_CONNECTION, title: "Alert")
+			Utility.showAlert(in: self, message: kNO_INTERNET_CONNECTION, title: kALERT)
 			return;
 		}
 		MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -107,10 +128,36 @@ class MovieListViewController: UIViewController {
 		}
 		
 		RESTAPIManager.makeHTTPGETRequest(url) { (json, error) in
+			
+			if(error != nil) {
+				
+				DispatchQueue.main.async {
+					MBProgressHUD.hide(for: self.view, animated: true)
+					Utility.showAlert(in: self, message: kERROR_WEB_SERVICE, title: kALERT)
+					return
+				}
+			}
+			
 			guard let items = (type == MOVIE_TYPE.normal.rawValue) ? json["items"].array : json["results"].array else {
+				
+				DispatchQueue.main.async {
+				
+					MBProgressHUD.hide(for: self.view, animated: true)
+					Utility.showAlert(in: self, message: kNO_DATA_FOUND+" for page count \(self.pageCount)", title: kALERT)
+				}
 				return
 			}
-			print("items are here\(items)")
+			
+			if(items.isEmpty) {
+				
+				DispatchQueue.main.async {
+					
+					MBProgressHUD.hide(for: self.view, animated: true)
+					Utility.showAlert(in: self, message: kNO_DATA_FOUND+" for page count \(self.pageCount)", title: kALERT)
+				}
+				return
+			}
+			
 			if(self.pageCount == 1) {
 				
 				self.arrayMovies.removeAll()
@@ -128,6 +175,11 @@ class MovieListViewController: UIViewController {
 		}
 	}
 	
+	/*!
+		@brief It is a openSettingViewController method
+		@description This method is to open setting screen as a popover screen.
+		@param nil
+	*/
 	func openSettingViewController() {
 		
 		let settingVC  = UIStoryboard.settingViewController()
@@ -146,9 +198,17 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UISearchBarDelegate {
 	
+	//MARK: UISearchBarDelegate
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		
 		searchBar.resignFirstResponder()
+		searchBar.text = ""
+		if(currentShowingMovieType == MOVIE_TYPE.search) {
+			
+			pageCount = 1
+			currentShowingMovieType = MOVIE_TYPE.normal
+			callAPIToGetMovieList(type: MOVIE_TYPE.normal.rawValue, searchText: "")
+		}
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -156,6 +216,7 @@ extension MovieListViewController: UISearchBarDelegate {
 		if(searchBar.text != "") {
 			
 			pageCount = 1
+			currentShowingMovieType = MOVIE_TYPE.search
 			searchText = searchBar.text!
 			searchBar.resignFirstResponder()
 			callAPIToGetMovieList(type: MOVIE_TYPE.search.rawValue, searchText: searchBar.text!)
@@ -179,12 +240,7 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kMOVIE_CELL_ID, for: indexPath) as! MovieCell
-		let currentMovieDetail = arrayMovies[indexPath.row]
-		cell.labelMovieTitle.text = arrayMovies[indexPath.row].originalTitle
-		//let url = "https://image.tmdb.org/t/p/w342\(currentMoveDetail.posterImage!)"
-		let url = currentMovieDetail.posterImage
-		print(url)
-		cell.imageViewPoster.loadImageUsingCache(withUrl: url)
+		cell.configureCell(with: arrayMovies[indexPath.row])
 		return cell
 	}
 	
@@ -238,8 +294,10 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
 		return interitemSpace
 	}
 }
+	
 extension MovieListViewController: UIPopoverPresentationControllerDelegate {
 	
+	//MARK: UIPopoverPresentationControllerDelegate
 	func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
 		return UIModalPresentationStyle.none
 	}
@@ -254,10 +312,12 @@ extension MovieListViewController: SettingViewControllerDelegate {
 		pageCount = 1
 		if(index == 0) {
 			
+			//code for the most popular movies
 			currentShowingMovieType = MOVIE_TYPE.mostPopular
 			callAPIToGetMovieList(type: MOVIE_TYPE.mostPopular.rawValue, searchText: "")
 		}else {
 			
+			//code for the top rated movies
 			currentShowingMovieType = MOVIE_TYPE.topRated
 			callAPIToGetMovieList(type:MOVIE_TYPE.topRated.rawValue, searchText: "")
 		}

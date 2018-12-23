@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
@@ -45,10 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func configureNavigationBar() {
 	
-		UINavigationBar.appearance().barTintColor = .red
-		UINavigationBar.appearance().tintColor = .white
-		UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-		UINavigationBar.appearance().isTranslucent = false
+		UINavigationBar.appearance().barTintColor 			= .red
+		UINavigationBar.appearance().tintColor 				= .white
+		UINavigationBar.appearance().titleTextAttributes 	= [NSAttributedStringKey.foregroundColor: UIColor.white]
+		UINavigationBar.appearance().isTranslucent 			= false
 	}
 }
 
