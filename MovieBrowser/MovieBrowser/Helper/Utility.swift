@@ -9,10 +9,10 @@
 import Foundation
 enum MOVIE_TYPE: String {
 	
-	case normal = "Normal"
-	case search = "Search"
-	case mostPopular = "MostPopular"
-	case topRated = "TopRated"
+	case normal 			= "Normal"
+	case search 			= "Search"
+	case mostPopular 	= "MostPopular"
+	case topRated 		= "TopRated"
 }
 
 class Utility {
@@ -31,26 +31,25 @@ class Utility {
 	
 	class func getGeneralMovieListURL(with id:Int) -> String {
 		
-		let urlString  = "https://api.themoviedb.org/3/list/\(id)?api_key=7c18796081fc8f45f308151b448511e2&language=en-US"
+		let urlString  = "\(kBASE_URL)list/\(id)?api_key=\(kAPI_KEY)&language=en-US"
 		return urlString
 	}
 	
 	class func getSearchMovieListURL(for pageCount:Int, keywordToSearch:String)  -> String{
 		
-		let urlString = "https://api.themoviedb.org/3/search/movie?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&query=\(keywordToSearch)&page=\(pageCount)&include_adult=false"
+		let urlString = "\(kBASE_URL)search/movie?api_key=\(kAPI_KEY)&language=en-US&query=\(keywordToSearch)&page=\(pageCount)&include_adult=false"
 		return urlString
 	}
 	
 	class func getMostPopularMovieListURL(for pageCount:Int) -> String {
 		
-		let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&page=\(pageCount)"
-		
+		let urlString = "\(kBASE_URL)movie/popular?api_key=\(kAPI_KEY)&language=en-US&page=\(pageCount)"
 		return urlString
 	}
 	
 	class func getTopRatedMovieURL(for pageCount:Int) -> String {
 		
-		let urlString = "https://api.themoviedb.org/3/movie/top_rated?api_key=7c18796081fc8f45f308151b448511e2&language=en-US&page=\(pageCount)"
+		let urlString = "\(kBASE_URL)movie/top_rated?api_key=\(kAPI_KEY)&language=en-US&page=\(pageCount)"
 		return urlString
 	}
 }
