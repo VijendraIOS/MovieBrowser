@@ -22,6 +22,8 @@
 		CC331ABE21CE8160003A5EFA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331ABD21CE8160003A5EFA /* MovieCell.swift */; };
 		CC331AC121CE8482003A5EFA /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AC021CE8482003A5EFA /* Movies.swift */; };
 		CC331AC521CE8CBD003A5EFA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */; };
+		CC331AC721CEB8DD003A5EFA /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC331AC621CEB8DD003A5EFA /* Utility.swift */; };
+		CC4BE0F921CF6C1100F4F946 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4BE0F821CF6C1000F4F946 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		CC331AC221CE8CBB003A5EFA /* MovieBrowser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovieBrowser-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CC331AC421CE8CBD003A5EFA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		CC331AC621CEB8DD003A5EFA /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		CC4BE0F821CF6C1000F4F946 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +87,12 @@
 				CC331AB021CE6FA7003A5EFA /* Extension */,
 				CC331AB521CE754A003A5EFA /* Networking */,
 				CC331ABF21CE8181003A5EFA /* cell */,
-				CC331AC421CE8CBD003A5EFA /* MBProgressHUD.h */,
-				CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */,
-				CC331AA021CE66D0003A5EFA /* Info.plist */,
-				CC331AB321CE6FDE003A5EFA /* Constant.swift */,
-				CC331AC021CE8482003A5EFA /* Movies.swift */,
+				CC4BE0F121CF63D400F4F946 /* ActivityIndicator */,
 				CC331AC221CE8CBB003A5EFA /* MovieBrowser-Bridging-Header.h */,
+				CC331AA021CE66D0003A5EFA /* Info.plist */,
+				CC4BE0F321CF63FA00F4F946 /* Extra */,
+				CC4BE0F421CF641700F4F946 /* Helper */,
+				CC4BE0F221CF63EB00F4F946 /* Model */,
 			);
 			path = MovieBrowser;
 			sourceTree = "<group>";
@@ -98,6 +102,7 @@
 			children = (
 				CC331AA621CE6716003A5EFA /* MovieListViewController.swift */,
 				CC331AA821CE672B003A5EFA /* MovieDetailViewController.swift */,
+				CC4BE0F821CF6C1000F4F946 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,6 +157,39 @@
 				CC331ABD21CE8160003A5EFA /* MovieCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		CC4BE0F121CF63D400F4F946 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				CC331AC421CE8CBD003A5EFA /* MBProgressHUD.h */,
+				CC331AC321CE8CBC003A5EFA /* MBProgressHUD.m */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		CC4BE0F221CF63EB00F4F946 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC331AC021CE8482003A5EFA /* Movies.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC4BE0F321CF63FA00F4F946 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		CC4BE0F421CF641700F4F946 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CC331AB321CE6FDE003A5EFA /* Constant.swift */,
+				CC331AC621CEB8DD003A5EFA /* Utility.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +269,12 @@
 				CC331ABC21CE7CF8003A5EFA /* ReachabilityManager.swift in Sources */,
 				CC331AA921CE672B003A5EFA /* MovieDetailViewController.swift in Sources */,
 				CC331ABE21CE8160003A5EFA /* MovieCell.swift in Sources */,
+				CC4BE0F921CF6C1100F4F946 /* SettingViewController.swift in Sources */,
 				CC331AC521CE8CBD003A5EFA /* MBProgressHUD.m in Sources */,
 				CC331AA721CE6716003A5EFA /* MovieListViewController.swift in Sources */,
 				CC331AB921CE7C03003A5EFA /* RESTAPIManager.swift in Sources */,
 				CC331AB421CE6FDE003A5EFA /* Constant.swift in Sources */,
+				CC331AC721CEB8DD003A5EFA /* Utility.swift in Sources */,
 				CC331AB721CE7563003A5EFA /* SwiftyJSON.swift in Sources */,
 				CC331A9521CE66CD003A5EFA /* AppDelegate.swift in Sources */,
 				CC331AB221CE6FC4003A5EFA /* Extension.swift in Sources */,

@@ -16,6 +16,11 @@ extension UIStoryboard {
         
         return main().instantiateViewController(withIdentifier: kMOVIE_DETAIL_VC_ID) as! MovieDetailViewController
     }
+	
+	static func settingViewController() -> SettingViewController {
+		
+			return main().instantiateViewController(withIdentifier: kSETTING_VC_ID) as! SettingViewController
+	}
 }
 
 /*!
@@ -56,6 +61,4 @@ extension UIImageView {
       }
     }).resume()
   }
-  
 }
-
